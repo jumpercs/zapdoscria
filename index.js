@@ -94,8 +94,22 @@ app.post("/sendHook", async function sendText(req, res, next) {
 });//sendText
 
 app.post("/sendText", async function sendText(req, res, next) {
-    var result = await Sessions.sendText(req);
-    res.json(result);
+   
+
+  try{ 
+	var result = await Sessions.sendText(req);
+	res.json(result);
+	console.log(result.text);	
+	console.log();
+	next();
+  } catch(erro){
+  	console.log(erro.text);
+  	console.log();
+  	next(erro);
+  }
+
+  
+
 });//sendText
 
 app.post("/sendTextToStorie", async (req, res, next) => {
