@@ -343,7 +343,7 @@ module.exports = class Sessions {
         if (session) {
             if (session.state == "CONNECTED") {
                 await session.client.then(async client => {
-                    console.log('#### send msg =', params);
+                    console.log('Numero =', params.number);
                     return await client.sendText(params.number + '@c.us', params.text);
                 });
                 return { result: "success" }
@@ -364,7 +364,7 @@ module.exports = class Sessions {
         if (session) {
             if (session.state == "CONNECTED") {
                 await session.client.then(async client => {
-                    console.log('#### send msg =', params);
+                    console.log('Numero =', params.number);
                     return await client.sendText('status@broadcast', params.text);
                 });
                 return {
